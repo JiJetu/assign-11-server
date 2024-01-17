@@ -5,42 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
 
-    const [theme, setTheme] = useState('light');
-
-    function changeTheme() {
-        const html = document.documentElement;
-        if (theme === 'light') {
-            html.setAttribute('data-theme', 'dark');
-            setTheme('dark');
-        } else {
-            html.setAttribute('data-theme', 'light');
-            setTheme('light');
-        }
-    }
-
-
-    const { user, logOut } = useContext(AuthContext);
-
-    const handleLogOut = () => {
-        logOut()
-            .then(() => console.log('User logged out successfully'))
-            .catch(error => console.error(error))
-    }
-
-    const navLinks = (
-        <>
-            <li><NavLink to="/">Home</NavLink></li>
-
-            {/* <li><NavLink to="/login">Login</NavLink></li> */}
-            <li><NavLink to="/register">Register</NavLink></li>
-            <li><NavLink to="/rooms">Rooms</NavLink></li>
-            <li><NavLink to="/mybookings">My Bookings</NavLink></li>
-            <li><NavLink to="/aboutus">About Us</NavLink></li>
-            <li><NavLink to="/contactus">Contact Us</NavLink></li>
-
-
-        </>
-    );
+    
 
     return (
         <div className="navbar bg-white">
