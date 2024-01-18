@@ -4,7 +4,14 @@ import RoomListBanner from "./RoomListBanner";
 import { Helmet } from "react-helmet";
 
 const Room = () => {
-  
+  const rooms = useLoaderData([]);
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
+
+  // Function to filter rooms by price range
+  const filterRooms = (room) => {
+    const price = room.pricePerNight;
+    return price >= priceRange.min && price <= priceRange.max;
+  };
 
   return (
     <div className="">
