@@ -14,39 +14,7 @@ const handleUpdateDate = async () => {
     date: newDate,
   };
 
-  Swal.fire({
-    title: 'Date is updated ,please Reload',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'okay',
-  }).then(async (result) => {
-    if (result.isConfirmed) {
-      const response = await fetch(`http://localhost:5000/bookings/${_id}`, {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(updatedDate),
-      });
-
-      if (response.ok) {
-        setNewDate(updatedDate.date);
-
-        Swal.fire('Success', 'Booking date updated successfully', 'success');
-
-        // Reload the page with a delay of 1 second
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      } else {
-        Swal.fire('Error', 'Failed to update booking', 'error');
-      }
-
-      setIsEditing(false);
-    }
-  });
+  
 };
 
 
